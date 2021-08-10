@@ -1,6 +1,10 @@
 package robot
 
-class Vision(private val logger: Logger, private val battery: Battery) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class Vision @Inject constructor(private val logger: Logger, private val battery: Battery) {
 
     fun look(): DetectedObject? {
         if (!battery.drawPower()) {
@@ -12,12 +16,7 @@ class Vision(private val logger: Logger, private val battery: Battery) {
         val num = getRandomNumber()
         val values = DetectedObject.values()
         val result = if (num < values.size) values[num] else null
-
-        if (result != null) {
-            logger.log("Object detected: $result")
-        } else {
-            logger.log("No objects detected.")
-        }
+        logger.log("Object detected: $result")
 
         return result
     }

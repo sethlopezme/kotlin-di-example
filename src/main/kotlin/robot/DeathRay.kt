@@ -1,6 +1,10 @@
 package robot
 
-class DeathRay(private val logger: Logger, private val battery: Battery) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class DeathRay @Inject constructor(private val logger: Logger, private val battery: Battery) {
 
     fun fire(): Boolean {
         if (!battery.drawPower()) {

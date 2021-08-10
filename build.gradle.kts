@@ -13,6 +13,10 @@ repositories {
 }
 
 dependencies {
+    // dagger
+    implementation("com.google.dagger:dagger:2.35.1")
+    kapt("com.google.dagger:dagger-compiler:2.35.1")
+
     // testing
     testImplementation(kotlin("test-junit"))
     testImplementation("io.mockk:mockk:1.10.6")

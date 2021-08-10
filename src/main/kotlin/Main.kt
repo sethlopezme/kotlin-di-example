@@ -1,7 +1,7 @@
-import di.ApplicationComponent
+import dagger.DaggerApplicationComponent
 
 fun main() {
-    val applicationComponent = ApplicationComponent()
-    val killerRobot = applicationComponent.createKillerRobot()
+    val applicationComponent = DaggerApplicationComponent.builder().build()
+    val killerRobot = applicationComponent.killerRobot()
     killerRobot.start()
 }

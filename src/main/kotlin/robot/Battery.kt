@@ -1,6 +1,10 @@
 package robot
 
-class Battery(private val logger: Logger) {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class Battery @Inject constructor(private val logger: Logger) {
 
     private val maxCapacity: Int = 10
     var capacity: Int = maxCapacity

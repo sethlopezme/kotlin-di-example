@@ -1,8 +1,9 @@
 package robot
 
 import java.lang.Thread.sleep
+import javax.inject.Inject
 
-class KillerRobot(
+class KillerRobot @Inject constructor(
     private val logger: Logger,
     private val battery: Battery,
     private val vision: Vision,
