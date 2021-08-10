@@ -2,15 +2,17 @@ package robot
 
 import java.lang.Thread.sleep
 
-class KillerRobot {
-    private val logger = Logger()
-    private val vision = Vision()
-    private val deathRay = DeathRay()
+class KillerRobot(
+    private val logger: Logger,
+    private val battery: Battery,
+    private val vision: Vision,
+    private val deathRay: DeathRay,
+) {
 
     fun start() {
         logger.log("Killer Robot 9000 starting up.\n")
 
-        while (Battery.capacity > 0) {
+        while (battery.capacity > 0) {
             val obj = vision.look()
             sleep(500)
             when (obj) {

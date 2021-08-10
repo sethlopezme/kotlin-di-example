@@ -1,6 +1,6 @@
 package robot
 
-object Battery {
+class Battery(private val logger: Logger) {
 
     private val maxCapacity: Int = 10
     var capacity: Int = maxCapacity
@@ -8,11 +8,9 @@ object Battery {
     val percentRemaining: Float
         get() = (capacity / maxCapacity.toFloat()) * 100
 
-    private val logger = Logger()
-
     fun drawPower(): Boolean {
         val formattedPercentRemaining = "%.2f".format(percentRemaining)
-        logger.log("robot.Battery capacity: $capacity/$maxCapacity (${formattedPercentRemaining}%). Drawing power.")
+        logger.log("Battery capacity: $capacity/$maxCapacity (${formattedPercentRemaining}%). Drawing power.")
         return if (capacity > 0) {
             capacity--
             true
